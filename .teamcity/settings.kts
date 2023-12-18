@@ -7,6 +7,7 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.projectFeatures.githubIssues
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -34,6 +35,9 @@ version = "2023.11"
 
 project {
 
+    vcsRoot(HttpsGithubComZhaojing1987springPetclinicRefsHeadsMain1)
+
+    buildType(Build1)
     buildType(Build)
 
     features {
@@ -98,5 +102,34 @@ object Build : BuildType({
                 filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER
             }
         }
+    }
+})
+
+object Build1 : BuildType({
+    name = "Build (1)"
+
+    vcs {
+        root(HttpsGithubComZhaojing1987springPetclinicRefsHeadsMain1)
+    }
+
+    triggers {
+        vcs {
+        }
+    }
+
+    features {
+        perfmon {
+        }
+    }
+})
+
+object HttpsGithubComZhaojing1987springPetclinicRefsHeadsMain1 : GitVcsRoot({
+    name = "https://github.com/zhaojing1987/spring-petclinic#refs/heads/main (1)"
+    url = "https://github.com/zhaojing1987/spring-petclinic"
+    branch = "refs/heads/main"
+    branchSpec = "refs/heads/*"
+    authMethod = password {
+        userName = "zhaojing1987"
+        password = "credentialsJSON:78ad34e0-40b4-4724-b670-c7f2f9f47051"
     }
 })
