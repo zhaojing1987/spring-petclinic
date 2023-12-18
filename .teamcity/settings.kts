@@ -130,7 +130,6 @@ object Build1 : BuildType({
             id = "ssh_exec_runner"
             commands = """
                 pkill -f spring-petclinic-3.2.0-SNAPSHOT.jar
-                sleep 5
                 nohup java -jar /data/petclinic/spring-petclinic-3.2.0-SNAPSHOT.jar > output.log &
             """.trimIndent()
             targetUrl = "47.92.222.186"
