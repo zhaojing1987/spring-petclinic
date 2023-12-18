@@ -3,6 +3,7 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.buildFeatures.notifications
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
+import jetbrains.buildServer.configs.kotlin.projectFeatures.githubIssues
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
@@ -32,6 +33,18 @@ version = "2023.11"
 project {
 
     buildType(Build)
+
+    features {
+        githubIssues {
+            id = "PROJECT_EXT_4"
+            displayName = "zhaojing1987/spring-petclinic"
+            repositoryURL = "https://github.com/zhaojing1987/spring-petclinic"
+            authType = accessToken {
+                accessToken = "credentialsJSON:69e87082-35f6-4662-b7c4-2ab9c42df02e"
+            }
+            param("tokenId", "")
+        }
+    }
 }
 
 object Build : BuildType({
