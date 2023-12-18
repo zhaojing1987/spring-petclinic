@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.commitStatusPublisher
+import jetbrains.buildServer.configs.kotlin.buildFeatures.notifications
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
@@ -63,6 +64,13 @@ object Build : BuildType({
                     token = "credentialsJSON:78ad34e0-40b4-4724-b670-c7f2f9f47051"
                 }
             }
+        }
+        notifications {
+            notifierSettings = emailNotifier {
+                email = "jing.zhao@websoft9.com"
+            }
+            buildFailed = true
+            buildFinishedSuccessfully = true
         }
     }
 })
