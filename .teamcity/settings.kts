@@ -121,6 +121,11 @@ object Build1 : BuildType({
         perfmon {
         }
     }
+
+    dependencies {
+        snapshot(Build) {
+        }
+    }
 })
 
 object HttpsGithubComZhaojing1987springPetclinicRefsHeadsMain1 : GitVcsRoot({
