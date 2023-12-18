@@ -123,7 +123,13 @@ object Build1 : BuildType({
     }
 
     dependencies {
-        snapshot(Build) {
+        dependency(Build) {
+            snapshot {
+            }
+
+            artifacts {
+                artifactRules = "target/spring-petclinic-3.2.0-SNAPSHOT.jar"
+            }
         }
     }
 })
