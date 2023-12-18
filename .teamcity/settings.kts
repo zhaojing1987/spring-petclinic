@@ -4,7 +4,9 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.buildFeatures.notifications
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildFeatures.pullRequests
+import jetbrains.buildServer.configs.kotlin.buildSteps.SSHUpload
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
+import jetbrains.buildServer.configs.kotlin.buildSteps.sshUpload
 import jetbrains.buildServer.configs.kotlin.projectFeatures.githubIssues
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
@@ -110,6 +112,19 @@ object Build1 : BuildType({
 
     vcs {
         root(HttpsGithubComZhaojing1987springPetclinicRefsHeadsMain1)
+    }
+
+    steps {
+        sshUpload {
+            id = "ssh_deploy_runner"
+            transportProtocol = SSHUpload.TransportProtocol.SCP
+            sourcePath = "*.jar"
+            targetUrl = "47.92.222.186:/data/petclinic"
+            authMethod = password {
+                username = "root"
+                password = "credentialsJSON:683d423d-4b68-44c2-af15-4ca7274d6a77"
+            }
+        }
     }
 
     triggers {
