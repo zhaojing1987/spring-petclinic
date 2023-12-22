@@ -115,10 +115,6 @@ object Build1 : BuildType({
     type = BuildTypeSettings.Type.DEPLOYMENT
     maxRunningBuilds = 1
 
-    vcs {
-        root(HttpsGithubComZhaojing1987springPetclinicRefsHeadsMain1)
-    }
-
     steps {
         sshUpload {
             id = "ssh_deploy_runner"
