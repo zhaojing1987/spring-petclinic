@@ -42,7 +42,6 @@ project {
 
     buildType(Build1)
     buildType(Build)
-    buildType(DeployToAliyun)
 
     features {
         githubIssues {
@@ -157,18 +156,6 @@ object Build1 : BuildType({
                 artifactRules = "target/spring-petclinic-3.2.0-SNAPSHOT.jar"
             }
         }
-    }
-})
-
-object DeployToAliyun : BuildType({
-    name = "Deploy to Aliyun"
-
-    enablePersonalBuilds = false
-    type = BuildTypeSettings.Type.DEPLOYMENT
-    maxRunningBuilds = 1
-
-    vcs {
-        root(DslContext.settingsRoot)
     }
 })
 
