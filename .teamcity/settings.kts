@@ -166,6 +166,10 @@ object DeployToAliyun : BuildType({
     enablePersonalBuilds = false
     type = BuildTypeSettings.Type.DEPLOYMENT
     maxRunningBuilds = 1
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
 })
 
 object HttpsGithubComZhaojing1987springPetclinicRefsHeadsMain1 : GitVcsRoot({
