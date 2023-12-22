@@ -42,6 +42,7 @@ project {
 
     buildType(Build1)
     buildType(Build)
+    buildType(DeployToAliyun)
 
     features {
         githubIssues {
@@ -157,6 +158,14 @@ object Build1 : BuildType({
             }
         }
     }
+})
+
+object DeployToAliyun : BuildType({
+    name = "Deploy to Aliyun"
+
+    enablePersonalBuilds = false
+    type = BuildTypeSettings.Type.DEPLOYMENT
+    maxRunningBuilds = 1
 })
 
 object HttpsGithubComZhaojing1987springPetclinicRefsHeadsMain1 : GitVcsRoot({
