@@ -10,7 +10,6 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.sshExec
 import jetbrains.buildServer.configs.kotlin.buildSteps.sshUpload
 import jetbrains.buildServer.configs.kotlin.projectFeatures.githubIssues
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
-import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -37,8 +36,6 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2023.11"
 
 project {
-
-    vcsRoot(HttpsGithubComZhaojing1987springPetclinicRefsHeadsMain1)
 
     buildType(Build1)
     buildType(Build)
@@ -160,16 +157,5 @@ object Build1 : BuildType({
                 artifactRules = "target/spring-petclinic-3.2.0-SNAPSHOT.jar"
             }
         }
-    }
-})
-
-object HttpsGithubComZhaojing1987springPetclinicRefsHeadsMain1 : GitVcsRoot({
-    name = "https://github.com/zhaojing1987/spring-petclinic#refs/heads/main (1)"
-    url = "https://github.com/zhaojing1987/spring-petclinic"
-    branch = "refs/heads/main"
-    branchSpec = "refs/heads/*"
-    authMethod = password {
-        userName = "zhaojing1987"
-        password = "credentialsJSON:78ad34e0-40b4-4724-b670-c7f2f9f47051"
     }
 })
