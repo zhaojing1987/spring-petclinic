@@ -111,6 +111,10 @@ object Build : BuildType({
 object Build1 : BuildType({
     name = "Deploy"
 
+    enablePersonalBuilds = false
+    type = BuildTypeSettings.Type.DEPLOYMENT
+    maxRunningBuilds = 1
+
     vcs {
         root(HttpsGithubComZhaojing1987springPetclinicRefsHeadsMain1)
     }
