@@ -115,6 +115,10 @@ object Build1 : BuildType({
     type = BuildTypeSettings.Type.DEPLOYMENT
     maxRunningBuilds = 1
 
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
     steps {
         sshUpload {
             id = "ssh_deploy_runner"
